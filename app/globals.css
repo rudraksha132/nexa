@@ -1,26 +1,92 @@
 @import "tailwindcss";
 
+/* Lay Grotesk - Premium Display Font (Local) */
+@font-face {
+  font-family: 'Lay Grotesk';
+  src: url('/fonts/lg.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* THE FOUNDRY PALETTE — single source of truth */
+  --bg: #F5F0E8;
+  --surface: #EDE8DF;
+  --ink: #0E0D0C;
+  --accent: #C85A2A;
+  --rule: #D8D2C8;
+
+  --font-display: 'Lay Grotesk', sans-serif;
+  --font-body: 'Lay Grotesk', sans-serif;
+
+  /* FLUID TYPOGRAPHY */
+  --h1: clamp(72px, 11vw, 180px);
+  --h2: clamp(32px, 5vw, 80px);
+  --body-size: clamp(14px, 1vw, 16px);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: auto !important;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--body-size);
+  line-height: 1.65;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+h1 {
+  font-size: var(--h1);
+  line-height: 0.92;
+  letter-spacing: -0.05em;
+  font-family: var(--font-display);
+}
+
+h2 {
+  font-size: var(--h2);
+  line-height: 1.05;
+  font-family: var(--font-display);
+}
+
+a {
+  color: inherit;
+}
+
+.eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+
+.line-clip {
+  overflow: hidden;
+  display: block;
+  line-height: 0.95;
+}
+
+.line-inner {
+  display: block;
 }
