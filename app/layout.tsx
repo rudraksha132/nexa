@@ -18,6 +18,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link
+          rel="preload"
+          href="/fonts/LayGrotesk.otf"
+          as="font"
+          type="font/otf"
+          crossOrigin="anonymous"
+        />
         {process.env.NODE_ENV === "development" && (
           <Script
             src="//unpkg.com/react-grab/dist/index.global.js"

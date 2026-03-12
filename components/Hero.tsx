@@ -50,10 +50,10 @@ export default function Hero() {
     }
 
     tl.to(
-        eyebrowRef.current,
-        { opacity: 0.55, duration: 0.8, ease: "power2.out" },
-        "-=1.0"
-      )
+      eyebrowRef.current,
+      { opacity: 0.55, duration: 0.8, ease: "power2.out" },
+      "-=1.0"
+    )
       .to(
         ctaRef.current,
         { opacity: 1, duration: 0.8, ease: "power2.out" },
@@ -72,7 +72,7 @@ export default function Hero() {
 
     st.to(image, { scale: 1.15, ease: "none" });
     if (shader) st.to(shader, { scale: 1.15, ease: "none" }, "<"); // Sync scroll parallax
-    
+
     st.to(
       [eyebrowRef.current, ctaRef.current],
       { opacity: 0, y: -60, stagger: 0.05, ease: "none" },
@@ -149,14 +149,13 @@ export default function Hero() {
       >
         {/* Headline / Brand Name */}
         <AnimatedHeading
-          text="NEXA SOLUTIONS"
+          text={"NEXA\nSOLUTIONS"}
           elementType="h1"
           delay={1.2}
           style={{
             fontWeight: 700,
             fontSize: "clamp(52px, 12vw, 220px)",
             lineHeight: 0.85,
-            letterSpacing: "-0.05em",
             color: "#F5F0E8",
             margin: 0,
             textTransform: "uppercase",
@@ -184,7 +183,7 @@ export default function Hero() {
         {/* CTA links */}
         <div ref={ctaRef} style={{ display: "flex", gap: "1.25rem", marginTop: "0.75rem" }}>
           <a
-            href="/contact"
+            href="#contact"
             style={{
               color: "#F5F0E8",
               fontSize: "11px",
@@ -201,7 +200,7 @@ export default function Hero() {
             Contact
           </a>
           <a
-            href="/services"
+            href="#services"
             style={{
               color: "#F5F0E8",
               fontSize: "11px",

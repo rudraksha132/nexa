@@ -59,7 +59,7 @@ export default function AnimatedHeading({
   }, [text, delay]);
 
   const Tag = elementType as React.ElementType;
-  const words = text.split(" ");
+  const lines = text.split("\n");
 
   return (
     <Tag
@@ -67,34 +67,43 @@ export default function AnimatedHeading({
       className={className}
       style={{ ...style, perspective: "1000px" }}
     >
-      {words.map((word, wIdx) => (
-        <span
-          key={wIdx}
-          className="split-word"
-          style={{
-            display: "inline-block",
-            overflow: "hidden",
-            verticalAlign: "top",
-          }}
-        >
-          {word.split("").map((char, cIdx) => (
-            <span
-              key={cIdx}
-              className="split-char"
-              style={{
-                display: "inline-block",
-                willChange: "transform, opacity",
-                transformOrigin: "50% 100%",
-              }}
-            >
-              {char}
-            </span>
-          ))}
-          {wIdx < words.length - 1 && (
-            <span style={{ display: "inline-block" }}>&nbsp;</span>
-          )}
-        </span>
-      ))}
+      {lines.map((line, lIdx) => {
+        const words = line.split(" ");
+        return (
+          <span key={lIdx} style={{ display: "block" }}>
+            {words.map((word, wIdx) => (
+              <span
+                key={wIdx}
+                className="split-word"
+                style={{
+                  display: "inline-block",
+                  overflow: "hidden",
+                  verticalAlign: "top",
+                  padding: "0.2em 0.1em",
+                  margin: "-0.2em -0.1em",
+                }}
+              >
+                {word.split("").map((char, cIdx) => (
+                  <span
+                    key={cIdx}
+                    className="split-char"
+                    style={{
+                      display: "inline-block",
+                      willChange: "transform, opacity",
+                      transformOrigin: "50% 100%",
+                    }}
+                  >
+                    {char}
+                  </span>
+                ))}
+                {wIdx < words.length - 1 && (
+                  <span style={{ display: "inline-block" }}>&nbsp;</span>
+                )}
+              </span>
+            ))}
+          </span>
+        );
+      })}
     </Tag>
   );
 }
