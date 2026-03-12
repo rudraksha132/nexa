@@ -156,6 +156,7 @@ export default function Hero() {
             fontWeight: 700,
             fontSize: "clamp(52px, 12vw, 220px)",
             lineHeight: 0.85,
+            letterSpacing: "0em",
             color: "#F5F0E8",
             margin: 0,
             textTransform: "uppercase",
